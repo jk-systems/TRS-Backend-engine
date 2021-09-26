@@ -53,6 +53,7 @@ exports.authUser = (req, res) => {
     sys:"trs",
     Tokens: tokens
   })
+  res.render("index.html")
    
 }
 
