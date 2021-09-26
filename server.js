@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const bodyparser = require('body-parser')
 
 const app = express()
+const cors = require('cors')
 dotenv.config()
 
 const router = require("./src/router")
@@ -15,6 +16,10 @@ app.use(express.static("public"))
 app.set("views", "views")
 app.set("view engine", "hbs")
 
+
+app.use(cors({
+  origin: '*'
+}));
 app.use("/", router)
 
 app.listen(port, () => {

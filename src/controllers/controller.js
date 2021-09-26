@@ -91,13 +91,13 @@ exports.renderAboutPage = (req, res) => {
 }
 
 exports.addSquadType = (req, res) => {
+  console.log(req.body);
   res.json({
     status:"200"
   })
 }
 
 
-//no bullshit
 exports.rscAdd = (req, res) => {
   console.log("succuss add rescouce");
 }
