@@ -1,0 +1,31 @@
+{
+  "name": "tech-resourcing-system",
+  "version": "1.0.0",
+  "description": "tech resoucing app for HR",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edyguru/Trs.git"
+  },
+  "keywords": [
+    "data",
+    "data-engine",
+    "tech-resourcing-system"
+  ],
+  "author": "Joseph, James and Edward",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edyguru/Trs/issues"
+  },
+  "homepage": "https://github.com/edyguru/Trs#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "hbs": "^4.1.2",
+    "mysql": "^2.18.1"
+  }
+}
