@@ -89,4 +89,15 @@ exports.getTable = (req, res) => {
 exports.renderAboutPage = (req, res) => {
   res.render("about")
 }
+
+exports.addSquadType = (req, res) => {
+  res.json({
+    status:"200"
+  })
+}
+
+
 //no bullshit
+exports.rscAdd = (req, res) => {
+  console.log("succuss add rescouce");
+}
