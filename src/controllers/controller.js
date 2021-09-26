@@ -16,7 +16,7 @@ mysqlConnection.connect((err) => {
     console.log(`DB connection failed : ${JSON.stringify(err, undefined, 2)}`);
 })
 
-const Weather = require("../model/Auth")
+const authUser = require("../model/Auth")
 const Table = require("../model/Table")
 const { json } = require('body-parser')
 
@@ -24,6 +24,14 @@ exports.renderHomePage = (req, res) => {
   res.render("index")
   console.log("registered a Get request from Client");
 }
+
+exports.authUser = (req, res) => {
+  res.json({
+    Status: "success",
+    sys:"trs"
+  })
+}
+
 exports.getTable = (req, res) => {
   const tname = req.body.tbl_name
   const table = new Table(req.body.tname)
