@@ -5,7 +5,7 @@ const Auth = function(data) {
   
   Auth.prototype.validateUserInput = function() {
   if (this.data == "") {
-    this.errors.push("Please enter the name of the city.")
+    this.errors.push("Please enter value.")
     }
   }
   
