@@ -1,3 +1,5 @@
+const uuid = require("uuid")
+
 const Auth = function(data) {
     this.data = data
     this.errors = []
@@ -9,4 +11,11 @@ const Auth = function(data) {
     }
   }
   
+Auth.prototype.generateUserTokens = () => {
+  //pass
+  id = uuid.v4()
+
+  return id;
+}
+
   module.exports = Auth

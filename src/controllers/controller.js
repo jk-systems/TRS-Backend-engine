@@ -16,7 +16,7 @@ mysqlConnection.connect((err) => {
     console.log(`DB connection failed : ${JSON.stringify(err, undefined, 2)}`);
 })
 
-const authUser = require("../model/Auth")
+const Auth = require("../model/Auth")
 const Table = require("../model/Table")
 const { json } = require('body-parser')
 
@@ -26,10 +26,34 @@ exports.renderHomePage = (req, res) => {
 }
 
 exports.authUser = (req, res) => {
+  const username = req.body.username;
+  const pass = req.body.password;
+  const params = [username, pass]
+  const q = `SELECT * FROM trs.users where username =? and password =?;`
+  mysqlConnection.query(q, params, (err, rows, fields) => {
+    if(!err){
+      let rowdata = rows
+      if (rows > 0) {
+        res.json({
+          Status: "Success",
+          ServerMsg: "hello from backend"
+        });
+        res.end
+      }
+      console.log("Registered a client Authentication request", rowdata);
+    }
+    else{
+      console.log(err)
+    }
+  })
+  const auth = new Auth()
+  const tokens = auth.generateUserTokens()
   res.json({
     Status: "success",
-    sys:"trs"
+    sys:"trs",
+    Tokens: tokens
   })
+   
 }
 
 exports.getTable = (req, res) => {
