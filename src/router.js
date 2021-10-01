@@ -9,6 +9,7 @@ router.post("/", controller.getTable)
 
 router.post("/api/login", controller.authUser)
 router.post("/rsc/login", controller.authUser)
+router.post("/rsc/addSquadType", controller.addSquad)
 router.post("/rsc/addSquadType", controller.addSquadType)
 
 

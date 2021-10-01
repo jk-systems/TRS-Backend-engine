@@ -97,6 +97,15 @@ exports.addSquadType = (req, res) => {
   })
 }
 
+exports.addSquad = (req, res) => {
+  console.log("Server registered add squad Request!")
+  console.warn("BE operations inprogress")
+  console.log(req.body);
+  res.json({
+    status:"200"
+  })
+}
+
 
 exports.rscAdd = (req, res) => {
   console.log("succuss add rescouce");
