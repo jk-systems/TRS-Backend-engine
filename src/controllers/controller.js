@@ -110,3 +110,24 @@ exports.addSquad = (req, res) => {
 exports.rscAdd = (req, res) => {
   console.log("succuss add rescouce");
 }
+
+//////////////////////////////////////////////////////////////////////////////
+exports.addResource = (req, res) => {
+  console.log(req.body)
+  res.json({
+    Status : 200
+  })
+}
+/////////////////////////////////////////////////////////////////////////////
+exports.getTt = (req, res) => {
+  console.log("received a fetch request!");
+  mysqlConnection.query('SELECT * FROM trs.tribe_types;', (err, rows, fields) => {
+    if(!err){
+      //let rowdata = rows
+      console.log( typeof(rows))
+      res.send(rows)
+    }   else{
+      console.log(err)
+    }
+})
+}

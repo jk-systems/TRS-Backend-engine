@@ -13,7 +13,7 @@ const port = process.env.PORT
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(express.static("public"))
-app.set("views", "views")
+// app.set("views", "views")
 
 //app.set("view engine", "hbs")
 
