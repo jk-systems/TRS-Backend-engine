@@ -123,11 +123,31 @@ exports.getTt = (req, res) => {
   console.log("received a fetch request!");
   mysqlConnection.query('SELECT * FROM trs.tribe_types;', (err, rows, fields) => {
     if(!err){
-      //let rowdata = rows
-      console.log( typeof(rows))
+      let rowdata = rows
+      console.log(fields)
       res.send(rows)
     }   else{
       console.log(err)
     }
-})
+  })
+}
+/////////////////////////////////////////////////////////////////////////////
+exports.addTt = (req, res) => {
+  console.log(req.body.TribeType);
+  let TribeType = req.body.TribeType 
+ console.log(TribeType);
+ mysqlConnection.query("INSERT INTO `trs`.`tribe_types` (`types`) VALUES ('"+ TribeType +"');", (err, rows, fields) => {
+   if(!err){
+     console.log("Data Added to DB")
+   }   else{
+     console.log(err)
+   }
+ })
+  res.json({
+    Status : 200,
+    tradeType : TribeType,
+    db : {
+      TribeType
+    }
+  })
 }
