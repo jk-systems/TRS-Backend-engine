@@ -413,99 +413,176 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Insights</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="background-color: #39b54a;"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div>
 
-              
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Existing Resources</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">400</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Demand</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">23</div>
+                                        </div>
+                                        <div class="col-auto">
+<!--                                             <i class="fas  fa-2x text-gray-300"></i>
+ -->                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Resources Deficit
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: red;">
+                                                Percentage Deficit</div>
+                                            
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
 
                     <div class="row">
 
 
-                        <!-- User Profile -->
-                        <div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><!-- <span class="font-weight-bold">Edogaru</span> --><!-- <span class="text-black-50">edogaru@mail.com.my</span><span> </span> --></div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Add Tribe type</h4>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Name of Tribe type</label>
-                        <input type="text" id="tt" class="form-control" placeholder="Tribe type" value=""></div>                     
-                        <script type="text/javascript">
+                        <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3" style="background-color: #39b54a;">
+                            <h6 class="m-0 font-weight-bold text-primary" style="color: white !important;">Squad Details</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                               
+                                                    <script type="text/javascript">
+                // api url
+const api_url =
+    "http://192.168.100.189:9999/Tt";
 
-                        function postData(){
-                        let ttype = document.getElementById("tt").value;
-                        console.log(ttype);
+// Defining async function
+async function getapi(url) {
+    
+    // Storing response
+    const response = await fetch(url);
+    
+    // Storing data in form of JSON
+    var data = await response.json();
+    console.log(data);
+    if (response) {
+        hideloader();
+    }
+    show(data);
+}
+// Calling that async function
+getapi(api_url);
 
-                        var url = "http://192.168.100.189:9999/addTt";
+// Function to hide the loader
+function hideloader() {
+    document.getElementById('loading').style.display = 'none';
+}
+// Function to define innerHTML for HTML table
+function show(data) {
+    let tab =
+        `<tr>
+        <th>Type id</th>
+        <th>Type</th>
 
-                        var xhr = new XMLHttpRequest();
-                        xhr.open("POST", url);
+        </tr>`;
+    
+    // Loop to access all rows
+    for (let r of data) {
+        tab += `<tr>
+    <td>${r.type_id} </td>
+    <td>${r.types}</td>
+       
+</tr>`;
+    }
+    // Setting innerHTML as tab variable
+    document.getElementById("hapa").innerHTML = tab;
+}
 
-                        xhr.setRequestHeader("Content-Type", "application/json");
-                        // xhr.setRequestHeader("Content-Type", "x-www-form-urlencoded");
+                </script>
 
-                        xhr.onreadystatechange = function () {
-                           if (xhr.readyState === 4) {
-                              console.log(xhr.status);
-                              console.log(xhr.responseText);
-                           }};
-                        // var kinu = "type" : "jjj";
-
-                        // var data = `${kinu}`;
-
-                        // var data = `{
-                        //   "Id": 777,
-                        //   "Type": "Eduu"
-                        // }`;
-
-                        let jdata = JSON.stringify({
-                            TribeType : ttype
-                        });
-                        xhr.send(jdata);
-                    }
-
-
-
-                        </script>
-   
-                   <!--  <div class="col-md-6"><label class="labels">Last name</label><input type="text" class="form-control" value="" placeholder="Last Name"></div> -->
-                </div>
-               <!--  <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Group Role</label><input type="text" class="form-control" placeholder="enter Group Role" value=""></div> -->
-                    <!-- <div class="col-md-12"><label class="labels"> Band</label><input type="text" class="form-control" placeholder="Band" value=""></div> -->
-                 <!--    <div class="col-md-12"><label class="labels">Org name</label><input type="text" class="form-control" placeholder="Org Name" value=""></div>
-                    <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control" placeholder="Name" value=""></div>
-                    <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="email" value=""></div>
-                    <div class="col-md-12"><label class="labels">Phone</label><input type="text" class="form-control" placeholder="Phone" value=""></div>
-                    <div class="col-md-12"><label class="labels">Department</label><input type="text" class="form-control" placeholder="Department" value=""></div>
-                    <div class="col-md-12"><label class="labels">Section</label><input type="text" class="form-control" placeholder="Section" value=""></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Subdivision</label><input type="text" class="form-control" placeholder="subdivision" value=""></div>
-                    <div class="col-md-6"><label class="labels">Division</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                </div> -->
-                <div class="mt-5 text-center"><button onclick="postData()" class="btn btn-primary profile-button" type="submit" style="background-color: #39b54a; color: white;">Save Squad</button></div>
+                
+<div class="d-flex justify-content-center">
+            <div class="spinner-border" 
+                 role="status" id="loading">
+                <span class="sr-only">Loading...</span>
             </div>
         </div>
-      <!--   <div class="col-md-4">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience" style="background-color: #39b54a; color: white;">Edit Details</span></div><br>
-                <div class="col-md-12"><label class="labels">Front Runner Tribe</label><input type="text" class="form-control" placeholder="Front Runner Tribes" value=""></div> <br>
-                <div class="col-md-12"><label class="labels">Tribe</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-                <div class="col-md-12"><label class="labels">Squad Role</label><input type="text" class="form-control" placeholder="Squad Roles" value=""></div>
-                <div class="col-md-12"><label class="labels">Front/Backend</label><input type="text" class="form-control" placeholder="Squad Roles" value=""></div>
-                <div class="col-md-12"><label class="labels">Roles</label><input type="text" class="form-control" placeholder="Roles" value=""></div>
-                <div class="col-md-12"><label class="labels">Squad</label><input type="text" class="form-control" placeholder="Squad" value=""></div>
-            </div>
-        </div> -->
-    </div>
-</div>
-</div>
-</div>
+        <!-- table for showing data -->
+        <table id="hapa" class="table table-bordered" id="dataTable" width="100%" cellspacing="0"></table>  
+                                
+                            </div>
+                        </div>
+                    </div>
 
 
                         <!-- Pie Chart -->
