@@ -90,34 +90,6 @@ exports.renderAboutPage = (req, res) => {
   res.render("about")
 }
 
-exports.addSquadType = (req, res) => {
-  console.log(req.body);
-  res.json({
-    status:"200"
-  })
-}
-
-exports.addSquad = (req, res) => {
-  console.log("Server registered add squad Request!")
-  console.warn("BE operations inprogress")
-  console.log(req.body);
-  res.json({
-    status:"200"
-  })
-}
-
-
-exports.rscAdd = (req, res) => {
-  console.log("succuss add rescouce");
-}
-
-//////////////////////////////////////////////////////////////////////////////
-exports.addResource = (req, res) => {
-  console.log(req.body)
-  res.json({
-    Status : 200
-  })
-}
 /////////////////////////////////////////////////////////////////////////////
 exports.getTt = (req, res) => {
   console.log("received a fetch request!");
@@ -133,7 +105,7 @@ exports.getTt = (req, res) => {
 }
 /////////////////////////////////////////////////////////////////////////////
 exports.addTt = (req, res) => {
-  console.log(req.body.TribeType);
+  // console.log(req.body.TribeType);
   let TribeType = req.body.TribeType 
  console.log(TribeType);
  mysqlConnection.query("INSERT INTO `trs`.`tribe_types` (`types`) VALUES ('"+ TribeType +"');", (err, rows, fields) => {
@@ -145,9 +117,191 @@ exports.addTt = (req, res) => {
  })
   res.json({
     Status : 200,
-    tradeType : TribeType,
-    db : {
-      TribeType
+    tradeType : TribeType
+  })
+}
+
+
+/////////////////////////////////////////////////////////////////////////////
+exports.addBand = (req, res) => {
+  // console.log(req.body.TribeType);
+  let band = req.body.BandName 
+  mysqlConnection.query("INSERT INTO `trs`.`band` (`band_name`) VALUES ('"+ band +"');", (err, rows, fields) => {
+   if(!err){
+     console.log("Data Added to DB")
+   }   else{
+     console.log(err)
+   }
+ })
+  res.json({
+    Status : 200,
+    BandName : band
+  })
+}
+/////////////////////////////////////////////////////////////////////////////
+exports.getBand = (req, res) => {
+  console.log("received a fetch request!");
+  mysqlConnection.query('SELECT * FROM trs.band;', (err, rows, fields) => {
+    if(!err){
+      let rowdata = rows
+      console.log(fields)
+      res.send(rows)
+    }   else{
+      console.log(err)
+    }
+  })
+}
+
+/////////////////////////////////////////////////////////////////////////////
+exports.addRole = (req, res) => {
+  let name = req.body.RoleName
+  let id = req.body.RoleNameId 
+  mysqlConnection.query("INSERT INTO `trs`.`roles` (`role_name`, `group_role_id`) VALUES ('" + name + "', '" + id +"');", (err, rows, fields) => {
+   if(!err){
+     console.log("Data Added to DB")
+   }   else{
+     console.log(err)
+   }
+ })
+  res.json({
+    Status : 200,
+    Name : name,
+    ID : id
+  })
+}
+/////////////////////////////////////////////////////////////////////////////
+exports.getRoles = (req, res) => {
+  console.log("received a fetch request!");
+  mysqlConnection.query('SELECT * FROM trs.roles;', (err, rows, fields) => {
+    if(!err){
+      let rowdata = rows
+      console.log(fields)
+      res.send(rows)
+    }   else{
+      console.log(err)
+    }
+  })
+}
+
+/////////////////////////////////////////////////////////////////////////////
+exports.addDept = (req, res) => {
+  let name = req.body.Dept
+  mysqlConnection.query("INSERT INTO `trs`.`departments` (`department_name`) VALUES ('" + name + "');", (err, rows, fields) => {
+   if(!err){
+     console.log("Data Added to DB")
+   }   else{
+     console.log(err)
+   }
+ })
+  res.json({
+    Status : 200,
+    Department : name,
+  })
+}
+/////////////////////////////////////////////////////////////////////////////
+exports.getDept = (req, res) => {
+  console.log("received a fetch request!");
+  mysqlConnection.query('SELECT * FROM trs.departments;', (err, rows, fields) => {
+    if(!err){
+      let rowdata = rows
+      console.log(fields)
+      res.send(rows)
+    }   else{
+      console.log(err)
+    }
+  })
+}
+
+
+/////////////////////////////////////////////////////////////////////////////
+exports.addSection = (req, res) => {
+  let name = req.body.Sect
+  mysqlConnection.query("INSERT INTO `trs`.`sections` (`section_name`) VALUES ('" + name + "');", (err, rows, fields) => {
+   if(!err){
+     console.log("Data Added to DB")
+   }   else{
+     console.log(err)
+   }
+ })
+  res.json({
+    Status : 200,
+    Department : name,
+  })
+}
+/////////////////////////////////////////////////////////////////////////////
+exports.getSections = (req, res) => {
+  console.log("received a fetch request!");
+  mysqlConnection.query('SELECT * FROM trs.sections;', (err, rows, fields) => {
+    if(!err){
+      let rowdata = rows
+      console.log(fields)
+      res.send(rows)
+    }   else{
+      console.log(err)
+    }
+  })
+}
+
+
+//
+/////////////////////////////////////////////////////////////////////////////
+exports.addDiv = (req, res) => {
+  let name = req.body.Div
+  mysqlConnection.query("INSERT INTO `trs`.`divisions` (`division_name`) VALUES ('" + name + "');", (err, rows, fields) => {
+   if(!err){
+     console.log("Data Added to DB")
+   }   else{
+     console.log(err)
+   }
+ })
+  res.json({
+    Status : 200,
+    Department : name,
+  })
+}
+/////////////////////////////////////////////////////////////////////////////
+exports.getDivs = (req, res) => {
+  console.log("received a fetch request!");
+  mysqlConnection.query('SELECT * FROM trs.divisions;', (err, rows, fields) => {
+    if(!err){
+      let rowdata = rows
+      console.log(fields)
+      res.send(rows)
+    }   else{
+      console.log(err)
+    }
+  })
+}
+
+//
+/////////////////////////////////////////////////////////////////////////////
+exports.addSquad = (req, res) => {
+  let name = req.body.Squad
+  let role = req.body.SquadRole
+  let id = req.body.SquadRoleId
+  ////////////INSERT INTO `trs`.`squad` (`squad`, `squad_role`, `squad_role_id`) VALUES ('a', 'a', 'a');
+  mysqlConnection.query("INSERT INTO `trs`.`squad` (`squad`, `squad_role`, `squad_role_id`) VALUES ('" + name + "," + role + "," + id + "');", (err, rows, fields) => {
+   if(!err){
+     console.log("Data Added to DB")
+   }   else{
+     console.log(err)
+   }
+ })
+  res.json({
+    Status : 200,
+    Department : name,
+  })
+}
+/////////////////////////////////////////////////////////////////////////////
+exports.getSquads = (req, res) => {
+  console.log("received a fetch request!");
+  mysqlConnection.query('SELECT * FROM trs.squad;', (err, rows, fields) => {
+    if(!err){
+      let rowdata = rows
+      console.log(fields)
+      res.send(rows)
+    }   else{
+      console.log(err)
     }
   })
 }
