@@ -280,7 +280,7 @@ exports.addSquad = (req, res) => {
   let role = req.body.SquadRole
   let id = req.body.SquadRoleId
   ////////////INSERT INTO `trs`.`squad` (`squad`, `squad_role`, `squad_role_id`) VALUES ('a', 'a', 'a');
-  mysqlConnection.query("INSERT INTO `trs`.`squad` (`squad`, `squad_role`, `squad_role_id`) VALUES ('" + name + "," + role + "," + id + "');", (err, rows, fields) => {
+  mysqlConnection.query("INSERT INTO `trs`.`squad` (`squad_name`, `squad_role`, `squad_role_id`) VALUES ('" + name + "','" + role + "','" + id + "');", (err, rows, fields) => {
    if(!err){
      console.log("Data Added to DB")
    }   else{
@@ -289,13 +289,52 @@ exports.addSquad = (req, res) => {
  })
   res.json({
     Status : 200,
-    Department : name,
+    Name : name,
+    Role : role,
+    Role_ID : id
   })
 }
 /////////////////////////////////////////////////////////////////////////////
 exports.getSquads = (req, res) => {
   console.log("received a fetch request!");
   mysqlConnection.query('SELECT * FROM trs.squad;', (err, rows, fields) => {
+    if(!err){
+      let rowdata = rows
+      console.log(fields)
+      res.send(rows)
+    }   else{
+      console.log(err)
+    }
+  })
+}
+
+//////
+/////
+//
+/////////////////////////////////////////////////////////////////////////////
+exports.addTribe = (req, res) => {
+  let name = req.body.Tribe
+  let typ = req.body.TribeType
+  let lead = req.body.TribeLead
+
+  mysqlConnection.query("INSERT INTO `trs`.`tribes` (`tribe_name`, `tribe_type`, `tribe_lead`) VALUES ('" + name + "','" + typ + "','" + lead + "');", (err, rows, fields) => {
+   if(!err){
+     console.log("Data Added to DB")
+   }   else{
+     console.log(err)
+   }
+ })
+  res.json({
+    Status : 200,
+    Name : name,
+    type : typ,
+    Lead : lead
+  })
+}
+/////////////////////////////////////////////////////////////////////////////
+exports.getTribes = (req, res) => {
+  console.log("received a fetch request!");
+  mysqlConnection.query('SELECT * FROM trs.tribes;', (err, rows, fields) => {
     if(!err){
       let rowdata = rows
       console.log(fields)
