@@ -413,84 +413,91 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">View Sections</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="background-color: #39b54a;"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div>
 
-              
+                    <!-- Content Row -->
+                    <div class="row">
+
+
 
                     <div class="row">
 
 
-                        <!-- User Profile -->
-                        <div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><!-- <span class="font-weight-bold">Edogaru</span> --><!-- <span class="text-black-50">edogaru@mail.com.my</span><span> </span> --></div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Add Section</h4>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Section Name</label><input type="text" id="section" class="form-control" placeholder="Section name" value=""></div>
-                                            <script type="text/javascript">
+                        <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3" style="background-color: #39b54a;">
+                            <h6 class="m-0 font-weight-bold text-primary" style="color: white !important;">Squad Details</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                               
+                        <script type="text/javascript">
+                        // api url
+                        const api_url =
+                        "http://192.168.100.189:9999/GetSections";
 
-                        function postData(){
-                        let section = document.getElementById("section").value;
-                        console.log(section);
+                        // Defining async function
+                        async function getapi(url) {
 
-                        var url = "http://192.168.100.189:9999/AddSection";
+                        // Storing response
+                        const response = await fetch(url);
 
-                        var xhr = new XMLHttpRequest();
-                        xhr.open("POST", url);
+                        // Storing data in form of JSON
+                        var data = await response.json();
+                        console.log(data);
+                        if (response) {
+                        hideloader();
+                        }
+                        show(data);
+                        }
+                        // Calling that async function
+                        getapi(api_url);
 
-                        xhr.setRequestHeader("Content-Type", "application/json");
-                        // xhr.setRequestHeader("Content-Type", "x-www-form-urlencoded");
+                        // Function to hide the loader
+                        function hideloader() {
+                        document.getElementById('loading').style.display = 'none';
+                        }
+                        // Function to define innerHTML for HTML table
+                        function show(data) {
+                        let tab =
+                        `<tr>
+                        <th>Section Id</th>
+                        <th>Section Name</th>
 
-                        xhr.onreadystatechange = function () {
-                           if (xhr.readyState === 4) {
-                              console.log(xhr.status);
-                              console.log(xhr.responseText);
-                           }};
-                        // var kinu = "type" : "jjj";
+                        </tr>`;
 
-                        // var data = `${kinu}`;
+                        // Loop to access all rows
+                        for (let r of data) {
+                        tab += `<tr>
+                        <td>${r.section_id} </td>
+                        <td>${r.section_name}</td>
 
-                        // var data = `{
-                        //   "Id": 777,
-                        //   "Type": "Eduu"
-                        // }`;
-
-                        let jdata = JSON.stringify({
-                            Sect : section
-                        });
-                        xhr.send(jdata);
-                    }
-
-
+                        </tr>`;
+                        }
+                        // Setting innerHTML as tab variable
+                        document.getElementById("hapa").innerHTML = tab;
+                        }
 
                         </script>
-                        <div class="mt-5 text-center"><button onclick="postData()" class="btn btn-primary profile-button" type="submit" style="background-color: #39b54a; color: white;">Save Section</button></div>
 
-                   <!--  <div class="col-md-6"><label class="labels">Last name</label><input type="text" class="form-control" value="" placeholder="Last Name"></div> -->
-                </div>
                 
-        </div>
-      <!--   <div class="col-md-4">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience" style="background-color: #39b54a; color: white;">Edit Details</span></div><br>
-                <div class="col-md-12"><label class="labels">Front Runner Tribe</label><input type="text" class="form-control" placeholder="Front Runner Tribes" value=""></div> <br>
-                <div class="col-md-12"><label class="labels">Tribe</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-                <div class="col-md-12"><label class="labels">Squad Role</label><input type="text" class="form-control" placeholder="Squad Roles" value=""></div>
-                <div class="col-md-12"><label class="labels">Front/Backend</label><input type="text" class="form-control" placeholder="Squad Roles" value=""></div>
-                <div class="col-md-12"><label class="labels">Roles</label><input type="text" class="form-control" placeholder="Roles" value=""></div>
-                <div class="col-md-12"><label class="labels">Squad</label><input type="text" class="form-control" placeholder="Squad" value=""></div>
+<div class="d-flex justify-content-center">
+            <div class="spinner-border" 
+                 role="status" id="loading">
+                <span class="sr-only">Loading...</span>
             </div>
-        </div> -->
-    </div>
-</div>
-</div>
-</div>
+        </div>
+        <!-- table for showing data -->
+        <table id="hapa" class="table table-bordered" id="dataTable" width="100%" cellspacing="0"></table>  
+                                
+                            </div>
+                        </div>
+                    </div>
 
 
                         <!-- Pie Chart -->
