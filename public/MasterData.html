@@ -264,6 +264,7 @@
                                 <span class="badge badge-danger badge-counter">3+</span>
                             </a>
                             <!-- Dropdown - Alerts -->
+                            <!--
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
@@ -303,7 +304,7 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                            </div>
+                            </div> -->
                         </li>
 
                         <!-- Nav Item - Messages -->
@@ -413,84 +414,62 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                
+                    <!-- Page Heading -->
+                    
+                    <!-- Content Row -->
+                    <div class="row">
 
-              
+                            <!--  data Card -->
+                            <div class="card mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold" style="color: #39b54a; !important;">Manage Tribe Types</h6>
+                                </div>
+                                <div class="card-body">
+                                    <img class="img-profile rounded-circle"
+                                    src="img/files.png"> <br> <br>
+                                    <button>
+                                    <a href="viewtribetypes.html" type="" style="color: #39b54a; !important;">View Tribe Types</a>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Data Card -->
+                            <div class="card mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold" style="color: #39b54a; !important;">Manage Sections</h6>
+                                </div>
+                                <div class="card-body">
+                                    <img class="img-profile rounded-circle"
+                                    src="img/files.png"> <br> <br>
+                                    <button>
+                                    <a href="viewSections.html" type="" style="color: #39b54a; !important;">View Sections</a>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Data Card -->
+                            <div class="card mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold" style="color: #39b54a; !important;">Manage Roles</h6>
+                                </div>
+                                <div class="card-body">
+                                    <img class="img-profile rounded-circle"
+                                    src="img/files.png"> <br> <br>
+                                    <button>
+                                    <a href="viewRoles.html" type="" style="color: #39b54a; !important;">View Roles</a>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
 
                     <div class="row">
 
 
-                        <!-- User Profile -->
-                        <div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><!-- <span class="font-weight-bold">Edogaru</span> --><!-- <span class="text-black-50">edogaru@mail.com.my</span><span> </span> --></div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Add Section</h4>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Section Name</label><input type="text" id="section" class="form-control" placeholder="Section name" value=""></div>
-                                            <script type="text/javascript">
 
-                        function postData(){
-                        let section = document.getElementById("section").value;
-                        console.log(section);
-
-                        var url = "http://192.168.100.189:9999/AddSection";
-
-                        var xhr = new XMLHttpRequest();
-                        xhr.open("POST", url);
-
-                        xhr.setRequestHeader("Content-Type", "application/json");
-                        // xhr.setRequestHeader("Content-Type", "x-www-form-urlencoded");
-
-                        xhr.onreadystatechange = function () {
-                           if (xhr.readyState === 4) {
-                              console.log(xhr.status);
-                              console.log(xhr.responseText);
-                           }};
-                        // var kinu = "type" : "jjj";
-
-                        // var data = `${kinu}`;
-
-                        // var data = `{
-                        //   "Id": 777,
-                        //   "Type": "Eduu"
-                        // }`;
-
-                        let jdata = JSON.stringify({
-                            Sect : section
-                        });
-                        xhr.send(jdata);
-                    }
-
-
-
-                        </script>
-                        <div class="mt-5 text-center"><button onclick="postData()" class="btn btn-primary profile-button" type="submit" style="background-color: #39b54a; color: white;">Save Section</button></div>
-
-                   <!--  <div class="col-md-6"><label class="labels">Last name</label><input type="text" class="form-control" value="" placeholder="Last Name"></div> -->
-                </div>
-                
-        </div>
-      <!--   <div class="col-md-4">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience" style="background-color: #39b54a; color: white;">Edit Details</span></div><br>
-                <div class="col-md-12"><label class="labels">Front Runner Tribe</label><input type="text" class="form-control" placeholder="Front Runner Tribes" value=""></div> <br>
-                <div class="col-md-12"><label class="labels">Tribe</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-                <div class="col-md-12"><label class="labels">Squad Role</label><input type="text" class="form-control" placeholder="Squad Roles" value=""></div>
-                <div class="col-md-12"><label class="labels">Front/Backend</label><input type="text" class="form-control" placeholder="Squad Roles" value=""></div>
-                <div class="col-md-12"><label class="labels">Roles</label><input type="text" class="form-control" placeholder="Roles" value=""></div>
-                <div class="col-md-12"><label class="labels">Squad</label><input type="text" class="form-control" placeholder="Squad" value=""></div>
-            </div>
-        </div> -->
-    </div>
-</div>
-</div>
-</div>
 
 
                         <!-- Pie Chart -->

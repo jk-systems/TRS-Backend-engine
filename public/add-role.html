@@ -432,25 +432,54 @@
                     <h4 class="text-right">Add Role</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Role Name</label><input type="text" class="form-control" placeholder="Role name" value=""></div>
+                    <div class="col-md-6"><label class="labels">Role Name</label>
+                        <input type="text" id="role" class="form-control" placeholder="Role name" value=""></div>
+                        <input type="text" id="roleId" class="form-control" placeholder="Role name Id" value=""></div>
+                                            <script type="text/javascript">
+
+                        function postData(){
+                        let role = document.getElementById("role").value;
+                        let roleId = document.getElementById("roleId").value;
+                        // console.log(role, roleId);
+
+                        var url = "http://192.168.100.189:9999/AddRole";
+
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("POST", url);
+
+                        xhr.setRequestHeader("Content-Type", "application/json");
+                        // xhr.setRequestHeader("Content-Type", "x-www-form-urlencoded");
+
+                        xhr.onreadystatechange = function () {
+                           if (xhr.readyState === 4) {
+                              console.log(xhr.status);
+                              console.log(xhr.responseText);
+                           }};
+                        // var kinu = "type" : "jjj";
+
+                        // var data = `${kinu}`;
+
+                        // var data = `{
+                        //   "Id": 777,
+                        //   "Type": "Eduu"
+                        // }`;
+
+                        let jdata = JSON.stringify({
+                            RoleName : role,
+                            RoleNameId : roleId
+                        });
+                        console.log(jdata);
+                        xhr.send(jdata);
+                    }
+
+
+
+                        </script>
+                        <div class="mt-5 text-center"><button onclick="postData()" class="btn btn-primary profile-button" type="submit" style="background-color: #39b54a; color: white;">Save Role</button></div>
+
                    <!--  <div class="col-md-6"><label class="labels">Last name</label><input type="text" class="form-control" value="" placeholder="Last Name"></div> -->
                 </div>
-                <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Group Role</label><input type="text" class="form-control" placeholder="enter Group Role" value=""></div>
-                    <!-- <div class="col-md-12"><label class="labels"> Band</label><input type="text" class="form-control" placeholder="Band" value=""></div> -->
-                 <!--    <div class="col-md-12"><label class="labels">Org name</label><input type="text" class="form-control" placeholder="Org Name" value=""></div>
-                    <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control" placeholder="Name" value=""></div>
-                    <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="email" value=""></div>
-                    <div class="col-md-12"><label class="labels">Phone</label><input type="text" class="form-control" placeholder="Phone" value=""></div>
-                    <div class="col-md-12"><label class="labels">Department</label><input type="text" class="form-control" placeholder="Department" value=""></div>
-                    <div class="col-md-12"><label class="labels">Section</label><input type="text" class="form-control" placeholder="Section" value=""></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Subdivision</label><input type="text" class="form-control" placeholder="subdivision" value=""></div>
-                    <div class="col-md-6"><label class="labels">Division</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                </div> -->
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" style="background-color: #39b54a; color: white;">Save Role</button></div>
-            </div>
+                
         </div>
       <!--   <div class="col-md-4">
             <div class="p-3 py-5">
