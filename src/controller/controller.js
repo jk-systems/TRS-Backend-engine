@@ -20,10 +20,6 @@ const Auth = require("../model/Auth")
 const Table = require("../model/Table")
 const { json } = require('body-parser')
 
-exports.renderHomePage = (req, res) => {
-  res.render("index")
-  console.log("registered a Get request from Client");
-}
 
 exports.authUser = (req, res) => {
   const username = req.body.username;

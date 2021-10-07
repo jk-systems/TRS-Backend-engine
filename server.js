@@ -20,8 +20,10 @@ app.use(express.static("public"))
 app.use(cors({
   origin: '*'
 }));
+
 app.use("/", router)
 
 app.listen(port, () => {
   console.log(`The server is now running on Port : ${port}`)
 })
+//EOF
